@@ -1,14 +1,15 @@
 package com.jnardari.opencv_androidsamples.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
 import com.jnardari.opencv_androidsamples.R;
 
 public class SamplesActivity extends AppCompatActivity {
+
+    Intent sampleIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,11 +18,13 @@ public class SamplesActivity extends AppCompatActivity {
     }
 
     public void tutorial1(View v) {
-        // TODO - Create Intent and Start Activity
+        sampleIntent = new Intent(this, Tutorial1Activity.class);
+        startActivity(sampleIntent);
     }
 
     public void tutorial2(View v) {
-        // TODO - Create Intent and Start Activity
+        sampleIntent = new Intent(this, Tutorial2Activity.class);
+        startActivity(sampleIntent);
     }
 
     public void tutorial3(View v) {

@@ -2,6 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jnardari.opencv_androidsamples" >
 
+    <!-- Camera Permissions -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front.autofocus"
+        android:required="false" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,6 +31,23 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.Tutorial1Activity"
+            android:label="@string/title_activity_tutorial1"
+            android:parentActivityName=".activities.SamplesActivity"
+            android:screenOrientation="landscape" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jnardari.opencv_androidsamples.activities.SamplesActivity" />
+        </activity>
+        <activity
+            android:name=".activities.Tutorial2Activity"
+            android:label="@string/title_activity_tutorial2"
+            android:parentActivityName=".activities.SamplesActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jnardari.opencv_androidsamples.activities.SamplesActivity" />
         </activity>
     </application>
 
