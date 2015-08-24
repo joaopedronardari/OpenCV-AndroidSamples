@@ -25,7 +25,18 @@ model {
      * native build settings
      */
     android.ndk {
-        moduleName = "ndklib"
+        moduleName = "ndklibrarysample"
+    }
+
+    // Configures source set directory.
+    android.sources {
+        main {
+            jniLibs {
+                source {
+                    srcDir 'src/main/jniLibs'
+                }
+            }
+        }
     }
 }
 
