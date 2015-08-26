@@ -18,6 +18,8 @@
         android:name="android.hardware.camera.front.autofocus"
         android:required="false" />
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -36,7 +38,8 @@
             android:name=".activities.Tutorial1Activity"
             android:label="@string/title_activity_tutorial1"
             android:parentActivityName=".activities.SamplesActivity"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jnardari.opencv_androidsamples.activities.SamplesActivity" />
@@ -45,6 +48,16 @@
             android:name=".activities.Tutorial2Activity"
             android:label="@string/title_activity_tutorial2"
             android:parentActivityName=".activities.SamplesActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jnardari.opencv_androidsamples.activities.SamplesActivity" />
+        </activity>
+        <activity
+            android:name=".activities.Tutorial3Activity"
+            android:label="@string/title_activity_tutorial3"
+            android:parentActivityName=".activities.SamplesActivity"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jnardari.opencv_androidsamples.activities.SamplesActivity" />

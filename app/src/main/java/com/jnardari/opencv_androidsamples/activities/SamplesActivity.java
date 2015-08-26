@@ -28,7 +28,8 @@ public class SamplesActivity extends AppCompatActivity {
     }
 
     public void tutorial3(View v) {
-        // TODO - Create Intent and Start Activity
+        sampleIntent = new Intent(this, Tutorial3Activity.class);
+        startActivity(sampleIntent);
     }
 
     public void imageManipulations(View v) {
