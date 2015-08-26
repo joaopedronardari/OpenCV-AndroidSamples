@@ -47,7 +47,8 @@ public class SamplesActivity extends AppCompatActivity {
     }
 
     public void cameraCalibration(View v) {
-        // TODO - Create Intent and Start Activity
+        sampleIntent = new Intent(this, CameraCalibrationActivity.class);
+        startActivity(sampleIntent);
     }
 
     public void puzzle15(View v) {

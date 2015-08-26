@@ -74,7 +74,13 @@
         </activity>
         <activity
             android:name=".activities.ColorBlobDetectionActivity"
+            android:configChanges="keyboardHidden|orientation"
             android:label="@string/title_activity_color_blob_detection"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".activities.CameraCalibrationActivity"
+            android:label="@string/title_activity_camera_calibration"
             android:screenOrientation="landscape"
             android:configChanges="keyboardHidden|orientation">
         </activity>
