@@ -15,10 +15,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.jnardari.opencv_androidsamples.R;
 
-public class Tutorial2Activity extends AppCompatActivity implements CvCameraViewListener2 {
+public class Tutorial2Activity extends AppCompatActivity {
     private static final String    TAG = "Tutorial2Activity";
 
     private static final int       VIEW_MODE_RGBA     = 0;
@@ -38,31 +39,6 @@ public class Tutorial2Activity extends AppCompatActivity implements CvCameraView
 
     private CameraBridgeViewBase   mOpenCvCameraView;
 
-    private BaseLoaderCallback  mLoaderCallback = new BaseLoaderCallback(this) {
-        @Override
-        public void onManagerConnected(int status) {
-            switch (status) {
-                case LoaderCallbackInterface.SUCCESS:
-                {
-                    Log.i(TAG, "OpenCV loaded successfully");
-
-                    // Load native library after(!) OpenCV initialization
-                    System.loadLibrary("mixed_sample");
-
-                    mOpenCvCameraView.enableView();
-                } break;
-                default:
-                {
-                    super.onManagerConnected(status);
-                } break;
-            }
-        }
-    };
-
-    public Tutorial2Activity() {
-        Log.i(TAG, "Instantiated new " + this.getClass());
-    }
-
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -72,104 +48,11 @@ public class Tutorial2Activity extends AppCompatActivity implements CvCameraView
 
         setContentView(R.layout.activity_tutorial2);
 
-        mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.tutorial2_activity_surface_view);
-        mOpenCvCameraView.setCvCameraViewListener(this);
+        Toast.makeText(this,FindFeatures(1L, 1L) + " Teste",Toast.LENGTH_LONG).show();
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        Log.i(TAG, "called onCreateOptionsMenu");
-        mItemPreviewRGBA = menu.add("Preview RGBA");
-        mItemPreviewGray = menu.add("Preview GRAY");
-        mItemPreviewCanny = menu.add("Canny");
-        mItemPreviewFeatures = menu.add("Find features");
-        return true;
-    }
-
-    @Override
-    public void onPause()
-    {
-        super.onPause();
-        if (mOpenCvCameraView != null)
-            mOpenCvCameraView.disableView();
-    }
-
-    @Override
-    public void onResume()
-    {
-        super.onResume();
-        if (!OpenCVLoader.initDebug()) {
-            Log.d(TAG, "Internal OpenCV library not found. Using OpenCV Manager for initialization");
-            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_3_0_0, this, mLoaderCallback);
-        } else {
-            Log.d(TAG, "OpenCV library found inside package. Using it!");
-            mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
-        }
-    }
-
-    public void onDestroy() {
-        super.onDestroy();
-        if (mOpenCvCameraView != null)
-            mOpenCvCameraView.disableView();
-    }
-
-    public void onCameraViewStarted(int width, int height) {
-        mRgba = new Mat(height, width, CvType.CV_8UC4);
-        mIntermediateMat = new Mat(height, width, CvType.CV_8UC4);
-        mGray = new Mat(height, width, CvType.CV_8UC1);
-    }
-
-    public void onCameraViewStopped() {
-        mRgba.release();
-        mGray.release();
-        mIntermediateMat.release();
-    }
-
-    public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
-        final int viewMode = mViewMode;
-        switch (viewMode) {
-            case VIEW_MODE_GRAY:
-                // input frame has gray scale format
-                Imgproc.cvtColor(inputFrame.gray(), mRgba, Imgproc.COLOR_GRAY2RGBA, 4);
-                break;
-            case VIEW_MODE_RGBA:
-                // input frame has RBGA format
-                mRgba = inputFrame.rgba();
-                break;
-            case VIEW_MODE_CANNY:
-                // input frame has gray scale format
-                mRgba = inputFrame.rgba();
-                Imgproc.Canny(inputFrame.gray(), mIntermediateMat, 80, 100);
-                Imgproc.cvtColor(mIntermediateMat, mRgba, Imgproc.COLOR_GRAY2RGBA, 4);
-                break;
-            case VIEW_MODE_FEATURES:
-                // input frame has RGBA format
-                mRgba = inputFrame.rgba();
-                mGray = inputFrame.gray();
-                FindFeatures(mGray.getNativeObjAddr(), mRgba.getNativeObjAddr());
-                break;
-        }
-
-        return mRgba;
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Log.i(TAG, "called onOptionsItemSelected; selected item: " + item);
-
-        if (item == mItemPreviewRGBA) {
-            mViewMode = VIEW_MODE_RGBA;
-        } else if (item == mItemPreviewGray) {
-            mViewMode = VIEW_MODE_GRAY;
-        } else if (item == mItemPreviewCanny) {
-            mViewMode = VIEW_MODE_CANNY;
-        } else if (item == mItemPreviewFeatures) {
-            mViewMode = VIEW_MODE_FEATURES;
-        }
-
-        return true;
-    }
-
-    public native void FindFeatures(long matAddrGr, long matAddrRgba);
+    public native String FindFeatures(long matAddrGr, long matAddrRgba);
 
     static {
         System.loadLibrary("ndklibrarysample");
