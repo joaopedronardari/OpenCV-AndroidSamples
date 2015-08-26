@@ -7,4 +7,5 @@
     <string name="title_activity_tutorial2">Tutorial2Activity</string>
     <string name="title_activity_tutorial3">Tutorial3Activity</string>
     <string name="title_activity_image_manipulations">ImageManipulationsActivity</string>
+    <string name="title_activity_color_blob_detection">ColorBlobDetectionActivity</string>
 </resources>

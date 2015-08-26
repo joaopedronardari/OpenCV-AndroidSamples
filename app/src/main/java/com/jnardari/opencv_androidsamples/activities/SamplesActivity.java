@@ -42,7 +42,8 @@ public class SamplesActivity extends AppCompatActivity {
     }
 
     public void colorBlobDetection(View v) {
-        // TODO - Create Intent and Start Activity
+        sampleIntent = new Intent(this, ColorBlobDetectionActivity.class);
+        startActivity(sampleIntent);
     }
 
     public void cameraCalibration(View v) {

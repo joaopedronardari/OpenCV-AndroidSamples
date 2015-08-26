@@ -64,13 +64,19 @@
         </activity>
         <activity
             android:name=".activities.ImageManipulationsActivity"
-            android:label="@string/title_activity_image_manipulations"
-            android:screenOrientation="landscape"
             android:configChanges="keyboardHidden|orientation"
-            android:parentActivityName=".activities.SamplesActivity">
+            android:label="@string/title_activity_image_manipulations"
+            android:parentActivityName=".activities.SamplesActivity"
+            android:screenOrientation="landscape" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jnardari.opencv_androidsamples.activities.SamplesActivity" />
+        </activity>
+        <activity
+            android:name=".activities.ColorBlobDetectionActivity"
+            android:label="@string/title_activity_color_blob_detection"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation">
         </activity>
     </application>
 
