@@ -52,6 +52,7 @@ public class SamplesActivity extends AppCompatActivity {
     }
 
     public void puzzle15(View v) {
-        // TODO - Create Intent and Start Activity
+        sampleIntent = new Intent(this, Puzzle15Activity.class);
+        startActivity(sampleIntent);
     }
 }

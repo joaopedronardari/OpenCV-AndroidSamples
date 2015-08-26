@@ -184,4 +184,10 @@ public class Tutorial3Activity extends AppCompatActivity implements CvCameraView
         Toast.makeText(this, fileName + " saved", Toast.LENGTH_SHORT).show();
         return false;
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

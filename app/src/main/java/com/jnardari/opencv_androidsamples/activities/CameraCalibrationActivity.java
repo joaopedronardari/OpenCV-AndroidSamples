@@ -215,4 +215,10 @@ public class CameraCalibrationActivity extends AppCompatActivity implements CvCa
         mCalibrator.addCorners();
         return false;
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

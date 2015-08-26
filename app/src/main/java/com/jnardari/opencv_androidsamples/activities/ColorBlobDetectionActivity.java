@@ -195,4 +195,10 @@ public class ColorBlobDetectionActivity extends AppCompatActivity implements OnT
 
         return new Scalar(pointMatRgba.get(0, 0));
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

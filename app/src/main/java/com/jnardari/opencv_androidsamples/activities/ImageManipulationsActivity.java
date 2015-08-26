@@ -318,4 +318,10 @@ public class ImageManipulationsActivity extends AppCompatActivity implements CvC
 
         return rgba;
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }
