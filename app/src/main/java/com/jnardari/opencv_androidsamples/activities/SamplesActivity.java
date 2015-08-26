@@ -33,7 +33,8 @@ public class SamplesActivity extends AppCompatActivity {
     }
 
     public void imageManipulations(View v) {
-        // TODO - Create Intent and Start Activity
+        sampleIntent = new Intent(this, ImageManipulationsActivity.class);
+        startActivity(sampleIntent);
     }
 
     public void faceDetection(View v) {
