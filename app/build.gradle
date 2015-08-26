@@ -27,13 +27,12 @@ model {
     android.ndk {
         moduleName = "ndklibrarysample"
         //ldLibs += ['log']
-        cppFlags += "-std=c++11"
-        //cppFlags += ["-fexceptions", "-frtti"]
+        cppFlags += ["-ltbb", "-std=c++11", "-fexceptions", "-frtti"]
         cppFlags  += "-I${file("C:\\Users\\jnardari\\Desktop\\OpenCV-android-sdk\\sdk\\native\\jni\\include")}".toString()
         cppFlags  += "-I${file("C:\\Users\\jnardari\\Desktop\\OpenCV-android-sdk\\sdk\\native\\jni\\include\\opencv")}".toString()
-//        ldFlags += linkOpt
+        //ldFlags += linkOpt
         ldLibs += ["android", "EGL", "GLESv2", "dl", "log", "z"]// , "ibopencv_core"
-        stl = "stlport_static"//"gnustl_static"//"gnustl_shared"//"stlport_static"
+        stl = "gnustl_static"//"gnustl_static"//"gnustl_shared"//"stlport_static"
     }
 
     android.productFlavors {
@@ -45,24 +44,24 @@ model {
                 curDir = file(curDir.absolutePath)
                 String libsDir = curDir.absolutePath + "\\src\\main\\jniLibs\\armeabi\\" //"-L" +
 
-                ldLibs += libsDir + "libopencv_calib3d.a"
-                ldLibs += libsDir + "libopencv_core.a"
-                ldLibs += libsDir + "libopencv_features2d.a"
-                ldLibs += libsDir + "libopencv_flann.a"
-                ldLibs += libsDir + "libopencv_hal.a"
-                ldLibs += libsDir + "libopencv_highgui.a"
-                ldLibs += libsDir + "libopencv_imgcodecs.a"
-                ldLibs += libsDir + "libopencv_imgproc.a"
+                //ldLibs += libsDir + "libopencv_calib3d.a"
+                //ldLibs += libsDir + "libopencv_core.a"
+                //ldLibs += libsDir + "libopencv_features2d.a"
+                //ldLibs += libsDir + "libopencv_flann.a"
+                //ldLibs += libsDir + "libopencv_hal.a"
+                //ldLibs += libsDir + "libopencv_highgui.a"
+                //ldLibs += libsDir + "libopencv_imgcodecs.a"
+                //ldLibs += libsDir + "libopencv_imgproc.a"
                 ldLibs += libsDir + "libopencv_java3.so"
-                ldLibs += libsDir + "libopencv_ml.a"
-                ldLibs += libsDir + "libopencv_objdetect.a"
-                ldLibs += libsDir + "libopencv_photo.a"
-                ldLibs += libsDir + "libopencv_shape.a"
-                ldLibs += libsDir + "libopencv_stitching.a"
-                ldLibs += libsDir + "libopencv_superres.a"
-                ldLibs += libsDir + "libopencv_ts.a"
-                ldLibs += libsDir + "libopencv_video.a"
-                ldLibs += libsDir + "libopencv_videostab.a"
+                //ldLibs += libsDir + "libopencv_ml.a"
+                //ldLibs += libsDir + "libopencv_objdetect.a"
+                //ldLibs += libsDir + "libopencv_photo.a"
+                //ldLibs += libsDir + "libopencv_shape.a"
+                //ldLibs += libsDir + "libopencv_stitching.a"
+                //ldLibs += libsDir + "libopencv_superres.a"
+                //ldLibs += libsDir + "libopencv_ts.a"
+                //ldLibs += libsDir + "libopencv_video.a"
+                //ldLibs += libsDir + "libopencv_videostab.a"
 
             }
         }
@@ -74,24 +73,24 @@ model {
                 curDir = file(curDir.absolutePath)
                 String libsDir = curDir.absolutePath + "\\src\\main\\jniLibs\\armeabi-v7a\\"
 
-                ldLibs += libsDir + "libopencv_calib3d.a"
-                ldLibs += libsDir + "libopencv_core.a"
-                ldLibs += libsDir + "libopencv_features2d.a"
-                ldLibs += libsDir + "libopencv_flann.a"
-                ldLibs += libsDir + "libopencv_hal.a"
-                ldLibs += libsDir + "libopencv_highgui.a"
-                ldLibs += libsDir + "libopencv_imgcodecs.a"
-                ldLibs += libsDir + "libopencv_imgproc.a"
+                //ldLibs += libsDir + "libopencv_calib3d.a"
+                //ldLibs += libsDir + "libopencv_core.a"
+                //ldLibs += libsDir + "libopencv_features2d.a"
+                //ldLibs += libsDir + "libopencv_flann.a"
+                //ldLibs += libsDir + "libopencv_hal.a"
+                //ldLibs += libsDir + "libopencv_highgui.a"
+                //ldLibs += libsDir + "libopencv_imgcodecs.a"
+                //ldLibs += libsDir + "libopencv_imgproc.a"
                 ldLibs += libsDir + "libopencv_java3.so"
-                ldLibs += libsDir + "libopencv_ml.a"
-                ldLibs += libsDir + "libopencv_objdetect.a"
-                ldLibs += libsDir + "libopencv_photo.a"
-                ldLibs += libsDir + "libopencv_shape.a"
-                ldLibs += libsDir + "libopencv_stitching.a"
-                ldLibs += libsDir + "libopencv_superres.a"
-                ldLibs += libsDir + "libopencv_ts.a"
-                ldLibs += libsDir + "libopencv_video.a"
-                ldLibs += libsDir + "libopencv_videostab.a"
+                //ldLibs += libsDir + "libopencv_ml.a"
+                //ldLibs += libsDir + "libopencv_objdetect.a"
+                //ldLibs += libsDir + "libopencv_photo.a"
+                //ldLibs += libsDir + "libopencv_shape.a"
+                //ldLibs += libsDir + "libopencv_stitching.a"
+                //ldLibs += libsDir + "libopencv_superres.a"
+                //ldLibs += libsDir + "libopencv_ts.a"
+                //ldLibs += libsDir + "libopencv_video.a"
+                //ldLibs += libsDir + "libopencv_videostab.a"
 
             }
         }
@@ -103,24 +102,24 @@ model {
                 curDir = file(curDir.absolutePath)
                 String libsDir = curDir.absolutePath + "\\src\\main\\jniLibs\\x86\\"
 
-                ldLibs += libsDir + "libopencv_calib3d.a"
-                ldLibs += libsDir + "libopencv_core.a"
-                ldLibs += libsDir + "libopencv_features2d.a"
-                ldLibs += libsDir + "libopencv_flann.a"
-                ldLibs += libsDir + "libopencv_hal.a"
-                ldLibs += libsDir + "libopencv_highgui.a"
-                ldLibs += libsDir + "libopencv_imgcodecs.a"
-                ldLibs += libsDir + "libopencv_imgproc.a"
+                //ldLibs += libsDir + "libopencv_calib3d.a"
+                //ldLibs += libsDir + "libopencv_core.a"
+                //ldLibs += libsDir + "libopencv_features2d.a"
+                //ldLibs += libsDir + "libopencv_flann.a"
+                //ldLibs += libsDir + "libopencv_hal.a"
+                //ldLibs += libsDir + "libopencv_highgui.a"
+                //ldLibs += libsDir + "libopencv_imgcodecs.a"
+                //ldLibs += libsDir + "libopencv_imgproc.a"
                 ldLibs += libsDir + "libopencv_java3.so"
-                ldLibs += libsDir + "libopencv_ml.a"
-                ldLibs += libsDir + "libopencv_objdetect.a"
-                ldLibs += libsDir + "libopencv_photo.a"
-                ldLibs += libsDir + "libopencv_shape.a"
-                ldLibs += libsDir + "libopencv_stitching.a"
-                ldLibs += libsDir + "libopencv_superres.a"
-                ldLibs += libsDir + "libopencv_ts.a"
-                ldLibs += libsDir + "libopencv_video.a"
-                ldLibs += libsDir + "libopencv_videostab.a"
+                //ldLibs += libsDir + "libopencv_ml.a"
+                //ldLibs += libsDir + "libopencv_objdetect.a"
+                //ldLibs += libsDir + "libopencv_photo.a"
+                //ldLibs += libsDir + "libopencv_shape.a"
+                //ldLibs += libsDir + "libopencv_stitching.a"
+                //ldLibs += libsDir + "libopencv_superres.a"
+                //ldLibs += libsDir + "libopencv_ts.a"
+                //ldLibs += libsDir + "libopencv_video.a"
+                //ldLibs += libsDir + "libopencv_videostab.a"
             }
         }
         create("mips") {
@@ -131,24 +130,24 @@ model {
                 curDir = file(curDir.absolutePath)
                 String libsDir = curDir.absolutePath + "\\src\\main\\jniLibs\\mips\\"
 
-                ldLibs += libsDir + "libopencv_calib3d.a"
-                ldLibs += libsDir + "libopencv_core.a"
-                ldLibs += libsDir + "libopencv_features2d.a"
-                ldLibs += libsDir + "libopencv_flann.a"
-                ldLibs += libsDir + "libopencv_hal.a"
-                ldLibs += libsDir + "libopencv_highgui.a"
-                ldLibs += libsDir + "libopencv_imgcodecs.a"
-                ldLibs += libsDir + "libopencv_imgproc.a"
+                //ldLibs += libsDir + "libopencv_calib3d.a"
+                //ldLibs += libsDir + "libopencv_core.a"
+                //ldLibs += libsDir + "libopencv_features2d.a"
+                //ldLibs += libsDir + "libopencv_flann.a"
+                //ldLibs += libsDir + "libopencv_hal.a"
+                //ldLibs += libsDir + "libopencv_highgui.a"
+                //ldLibs += libsDir + "libopencv_imgcodecs.a"
+                //ldLibs += libsDir + "libopencv_imgproc.a"
                 ldLibs += libsDir + "libopencv_java3.so"
-                ldLibs += libsDir + "libopencv_ml.a"
-                ldLibs += libsDir + "libopencv_objdetect.a"
-                ldLibs += libsDir + "libopencv_photo.a"
-                ldLibs += libsDir + "libopencv_shape.a"
-                ldLibs += libsDir + "libopencv_stitching.a"
-                ldLibs += libsDir + "libopencv_superres.a"
-                ldLibs += libsDir + "libopencv_ts.a"
-                ldLibs += libsDir + "libopencv_video.a"
-                ldLibs += libsDir + "libopencv_videostab.a"
+                //ldLibs += libsDir + "libopencv_ml.a"
+                //ldLibs += libsDir + "libopencv_objdetect.a"
+                //ldLibs += libsDir + "libopencv_photo.a"
+                //ldLibs += libsDir + "libopencv_shape.a"
+                //ldLibs += libsDir + "libopencv_stitching.a"
+                //ldLibs += libsDir + "libopencv_superres.a"
+                //ldLibs += libsDir + "libopencv_ts.a"
+                //ldLibs += libsDir + "libopencv_video.a"
+                //ldLibs += libsDir + "libopencv_videostab.a"
             }
         }
         create("fat") {
