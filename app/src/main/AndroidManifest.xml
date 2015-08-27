@@ -49,7 +49,9 @@
         <activity
             android:name=".activities.Tutorial2Activity"
             android:label="@string/title_activity_tutorial2"
-            android:parentActivityName=".activities.SamplesActivity" >
+            android:parentActivityName=".activities.SamplesActivity"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jnardari.opencv_androidsamples.activities.SamplesActivity" />
