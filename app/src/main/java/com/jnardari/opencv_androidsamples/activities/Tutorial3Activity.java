@@ -155,6 +155,11 @@ public class Tutorial3Activity extends AppCompatActivity implements CvCameraView
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+
         Log.i(TAG, "called onOptionsItemSelected; selected item: " + item);
         if (item.getGroupId() == 1)
         {

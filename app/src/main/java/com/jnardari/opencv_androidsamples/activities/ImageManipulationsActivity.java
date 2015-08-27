@@ -161,6 +161,9 @@ public class ImageManipulationsActivity extends AppCompatActivity implements CvC
             viewMode = VIEW_MODE_PIXELIZE;
         else if (item == mItemPreviewPosterize)
             viewMode = VIEW_MODE_POSTERIZE;
+        else if (item.getItemId() == android.R.id.home)
+            finish();
+
         return true;
     }
 
@@ -317,11 +320,5 @@ public class ImageManipulationsActivity extends AppCompatActivity implements CvC
         }
 
         return rgba;
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
     }
 }

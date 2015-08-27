@@ -124,6 +124,9 @@ public class CameraCalibrationActivity extends AppCompatActivity implements CvCa
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
             case R.id.calibration:
                 mOnCameraFrameRender =
                         new OnCameraFrameRender(new CalibrationFrameRender(mCalibrator));
@@ -214,11 +217,5 @@ public class CameraCalibrationActivity extends AppCompatActivity implements CvCa
 
         mCalibrator.addCorners();
         return false;
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
     }
 }

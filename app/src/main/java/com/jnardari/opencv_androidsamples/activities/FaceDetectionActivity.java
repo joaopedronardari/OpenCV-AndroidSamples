@@ -230,6 +230,10 @@ public class FaceDetectionActivity extends AppCompatActivity implements CvCamera
             item.setTitle(mDetectorName[tmpDetectorType]);
             setDetectorType(tmpDetectorType);
         }
+        else if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+
         return true;
     }
 

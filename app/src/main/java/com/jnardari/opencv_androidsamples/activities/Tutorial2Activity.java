@@ -166,6 +166,8 @@ public class Tutorial2Activity extends AppCompatActivity implements CvCameraView
             mViewMode = VIEW_MODE_CANNY;
         } else if (item == mItemPreviewFeatures) {
             mViewMode = VIEW_MODE_FEATURES;
+        } else if (item.getItemId() == android.R.id.home) {
+            finish();
         }
 
         return true;

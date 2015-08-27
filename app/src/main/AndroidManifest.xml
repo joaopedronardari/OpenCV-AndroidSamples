@@ -79,13 +79,21 @@
             android:name=".activities.ColorBlobDetectionActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/title_activity_color_blob_detection"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:parentActivityName=".activities.SamplesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jnardari.opencv_androidsamples.activities.SamplesActivity" />
         </activity>
         <activity
             android:name=".activities.CameraCalibrationActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/title_activity_camera_calibration"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:parentActivityName=".activities.SamplesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jnardari.opencv_androidsamples.activities.SamplesActivity" />
         </activity>
         <activity
             android:name=".activities.Puzzle15Activity"

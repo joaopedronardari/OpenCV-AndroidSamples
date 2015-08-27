@@ -110,7 +110,10 @@ public class Puzzle15Activity extends AppCompatActivity implements CvCameraViewL
         } else if (item == mItemHideNumbers) {
             /* We need to enable or disable drawing of the tile numbers */
             mPuzzle15.toggleTileNumbers();
+        } else if (item.getItemId() == android.R.id.home) {
+            finish();
         }
+
         return true;
     }
 
@@ -142,11 +145,5 @@ public class Puzzle15Activity extends AppCompatActivity implements CvCameraViewL
 
     public Mat onCameraFrame(Mat inputFrame) {
         return mPuzzle15.puzzleFrame(inputFrame);
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
     }
 }
