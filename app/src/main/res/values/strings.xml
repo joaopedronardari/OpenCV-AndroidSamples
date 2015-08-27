@@ -15,15 +15,14 @@
     <string name="original">Original</string>
     <string name="undistorted">Undistorted</string>
 
-
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_tutorial1">Tutorial1Activity</string>
-    <string name="title_activity_tutorial2">Tutorial2Activity</string>
-    <string name="title_activity_tutorial3">Tutorial3Activity</string>
-    <string name="title_activity_image_manipulations">ImageManipulationsActivity</string>
-    <string name="title_activity_color_blob_detection">ColorBlobDetectionActivity</string>
-    <string name="title_activity_camera_calibration">CameraCalibrationActivity</string>
-    <string name="title_activity_puzzle15">Puzzle15Activity</string>
-    <string name="title_activity_face_detection">FaceDetectionActivity</string>
+    <string name="title_activity_tutorial1">Tutorial 1 Sample</string>
+    <string name="title_activity_tutorial2">Tutorial 2 Sample</string>
+    <string name="title_activity_tutorial3">Tutorial 3 Sample</string>
+    <string name="title_activity_image_manipulations">Image Manipulations Sample</string>
+    <string name="title_activity_color_blob_detection">Color Blob Detection Sample</string>
+    <string name="title_activity_camera_calibration">Camera Calibration Sample</string>
+    <string name="title_activity_puzzle15">Puzzle 15 Sample</string>
+    <string name="title_activity_face_detection">Face Detection Sample</string>
 </resources>
