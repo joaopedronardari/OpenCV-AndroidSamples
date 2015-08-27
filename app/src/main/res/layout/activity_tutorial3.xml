@@ -1,0 +1,12 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <!-- Warning... Change package if copy this bellow xml-->
+    <com.jnardari.opencv_androidsamples.views.Tutorial3View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:id="@+id/tutorial3_activity_java_surface_view" />
+
+</LinearLayout>

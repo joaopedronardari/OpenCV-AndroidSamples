@@ -28,11 +28,13 @@ public class SamplesActivity extends AppCompatActivity {
     }
 
     public void tutorial3(View v) {
-        // TODO - Create Intent and Start Activity
+        sampleIntent = new Intent(this, Tutorial3Activity.class);
+        startActivity(sampleIntent);
     }
 
     public void imageManipulations(View v) {
-        // TODO - Create Intent and Start Activity
+        sampleIntent = new Intent(this, ImageManipulationsActivity.class);
+        startActivity(sampleIntent);
     }
 
     public void faceDetection(View v) {
@@ -40,14 +42,17 @@ public class SamplesActivity extends AppCompatActivity {
     }
 
     public void colorBlobDetection(View v) {
-        // TODO - Create Intent and Start Activity
+        sampleIntent = new Intent(this, ColorBlobDetectionActivity.class);
+        startActivity(sampleIntent);
     }
 
     public void cameraCalibration(View v) {
-        // TODO - Create Intent and Start Activity
+        sampleIntent = new Intent(this, CameraCalibrationActivity.class);
+        startActivity(sampleIntent);
     }
 
     public void puzzle15(View v) {
-        // TODO - Create Intent and Start Activity
+        sampleIntent = new Intent(this, Puzzle15Activity.class);
+        startActivity(sampleIntent);
     }
 }

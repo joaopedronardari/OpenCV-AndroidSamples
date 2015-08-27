@@ -49,7 +49,6 @@ public class Tutorial2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_tutorial2);
 
         Toast.makeText(this,FindFeatures(1L, 1L) + " Teste",Toast.LENGTH_LONG).show();
-
     }
 
     public native String FindFeatures(long matAddrGr, long matAddrRgba);
