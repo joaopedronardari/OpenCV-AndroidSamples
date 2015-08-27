@@ -25,134 +25,61 @@ model {
      * native build settings
      */
     android.ndk {
+        abiFilters += ["armeabi", "armeabi-v7a"]
+
+        // Link with static OpenCV libraries: the order is important!
+        // The following order taken from OpenCV.mk
+        def opencv_modules = ["shape", "stitching", "objdetect", "superres", "videostab", "calib3d", "features2d", "highgui", "videoio", "imgcodecs", "video", "photo", "ml", "imgproc", "flann", "core", "hal"]
+
         moduleName = "ndklibrarysample"
         //ldLibs += ['log']
-        cppFlags += ["-ltbb", "-std=c++11", "-fexceptions", "-frtti"]
-        cppFlags  += "-I${file("C:\\Users\\jnardari\\Desktop\\OpenCV-android-sdk\\sdk\\native\\jni\\include")}".toString()
-        cppFlags  += "-I${file("C:\\Users\\jnardari\\Desktop\\OpenCV-android-sdk\\sdk\\native\\jni\\include\\opencv")}".toString()
+        // -g debug mode
+        cppFlags += ["-g", "-ltbb", "-std=c++11", "-fexceptions", "-frtti"]
+        cppFlags  += "-I${file("C:/Users/jnardari/Desktop/OpenCV-android-sdk/sdk/native/jni/include")}".toString()
+        //cppFlags  += "-I${file("C:/Users/jnardari/Desktop/OpenCV-android-sdk/sdk/native/jni/include/opencv")}".toString()
+        //cppFlags  += "-I${file("C:/Users/jnardari/Desktop/OpenCV-android-sdk/sdk/native/jni/include/opencv2")}".toString()
         //ldFlags += linkOpt
         ldLibs += ["android", "EGL", "GLESv2", "dl", "log", "z"]// , "ibopencv_core"
         stl = "gnustl_static"//"gnustl_static"//"gnustl_shared"//"stlport_static"
+
+        abiFilters.each { targetAbi ->
+            println targetAbi
+
+            opencv_modules.each{ module ->
+                ldLibs += file(projectDir).absolutePath + "/src/main/jniLibs/" + targetAbi + "/libopencv_" + module + ".a"
+                println module
+            }
+
+            ldLibs += file(projectDir).absolutePath + "/src/main/jniLibs/" + targetAbi + "/libtbb.a"
+        }
     }
 
     android.productFlavors {
+
         create("arm") {
             ndk.with {
+
                 abiFilters += "armeabi"
-
-                File curDir = file('./')
-                curDir = file(curDir.absolutePath)
-                String libsDir = curDir.absolutePath + "\\src\\main\\jniLibs\\armeabi\\" //"-L" +
-
-                //ldLibs += libsDir + "libopencv_calib3d.a"
-                //ldLibs += libsDir + "libopencv_core.a"
-                //ldLibs += libsDir + "libopencv_features2d.a"
-                //ldLibs += libsDir + "libopencv_flann.a"
-                //ldLibs += libsDir + "libopencv_hal.a"
-                //ldLibs += libsDir + "libopencv_highgui.a"
-                //ldLibs += libsDir + "libopencv_imgcodecs.a"
-                //ldLibs += libsDir + "libopencv_imgproc.a"
-                ldLibs += libsDir + "libopencv_java3.so"
-                //ldLibs += libsDir + "libopencv_ml.a"
-                //ldLibs += libsDir + "libopencv_objdetect.a"
-                //ldLibs += libsDir + "libopencv_photo.a"
-                //ldLibs += libsDir + "libopencv_shape.a"
-                //ldLibs += libsDir + "libopencv_stitching.a"
-                //ldLibs += libsDir + "libopencv_superres.a"
-                //ldLibs += libsDir + "libopencv_ts.a"
-                //ldLibs += libsDir + "libopencv_video.a"
-                //ldLibs += libsDir + "libopencv_videostab.a"
-
+                println "*** building for arm"
             }
+
         }
+
         create("armv7") {
             ndk.with {
+
                 abiFilters += "armeabi-v7a"
-
-                File curDir = file('./')
-                curDir = file(curDir.absolutePath)
-                String libsDir = curDir.absolutePath + "\\src\\main\\jniLibs\\armeabi-v7a\\"
-
-                //ldLibs += libsDir + "libopencv_calib3d.a"
-                //ldLibs += libsDir + "libopencv_core.a"
-                //ldLibs += libsDir + "libopencv_features2d.a"
-                //ldLibs += libsDir + "libopencv_flann.a"
-                //ldLibs += libsDir + "libopencv_hal.a"
-                //ldLibs += libsDir + "libopencv_highgui.a"
-                //ldLibs += libsDir + "libopencv_imgcodecs.a"
-                //ldLibs += libsDir + "libopencv_imgproc.a"
-                ldLibs += libsDir + "libopencv_java3.so"
-                //ldLibs += libsDir + "libopencv_ml.a"
-                //ldLibs += libsDir + "libopencv_objdetect.a"
-                //ldLibs += libsDir + "libopencv_photo.a"
-                //ldLibs += libsDir + "libopencv_shape.a"
-                //ldLibs += libsDir + "libopencv_stitching.a"
-                //ldLibs += libsDir + "libopencv_superres.a"
-                //ldLibs += libsDir + "libopencv_ts.a"
-                //ldLibs += libsDir + "libopencv_video.a"
-                //ldLibs += libsDir + "libopencv_videostab.a"
-
+                println "*** building for armv7"
             }
+
         }
-        create("x86") {
+
+        /*create("x86") {
             ndk.with {
                 abiFilters += "x86"
-
-                File curDir = file('./')
-                curDir = file(curDir.absolutePath)
-                String libsDir = curDir.absolutePath + "\\src\\main\\jniLibs\\x86\\"
-
-                //ldLibs += libsDir + "libopencv_calib3d.a"
-                //ldLibs += libsDir + "libopencv_core.a"
-                //ldLibs += libsDir + "libopencv_features2d.a"
-                //ldLibs += libsDir + "libopencv_flann.a"
-                //ldLibs += libsDir + "libopencv_hal.a"
-                //ldLibs += libsDir + "libopencv_highgui.a"
-                //ldLibs += libsDir + "libopencv_imgcodecs.a"
-                //ldLibs += libsDir + "libopencv_imgproc.a"
-                ldLibs += libsDir + "libopencv_java3.so"
-                //ldLibs += libsDir + "libopencv_ml.a"
-                //ldLibs += libsDir + "libopencv_objdetect.a"
-                //ldLibs += libsDir + "libopencv_photo.a"
-                //ldLibs += libsDir + "libopencv_shape.a"
-                //ldLibs += libsDir + "libopencv_stitching.a"
-                //ldLibs += libsDir + "libopencv_superres.a"
-                //ldLibs += libsDir + "libopencv_ts.a"
-                //ldLibs += libsDir + "libopencv_video.a"
-                //ldLibs += libsDir + "libopencv_videostab.a"
+                println "*** building for x86"
             }
-        }
-        create("mips") {
-            ndk.with {
-                abiFilters += "mips"
-
-                File curDir = file('./')
-                curDir = file(curDir.absolutePath)
-                String libsDir = curDir.absolutePath + "\\src\\main\\jniLibs\\mips\\"
-
-                //ldLibs += libsDir + "libopencv_calib3d.a"
-                //ldLibs += libsDir + "libopencv_core.a"
-                //ldLibs += libsDir + "libopencv_features2d.a"
-                //ldLibs += libsDir + "libopencv_flann.a"
-                //ldLibs += libsDir + "libopencv_hal.a"
-                //ldLibs += libsDir + "libopencv_highgui.a"
-                //ldLibs += libsDir + "libopencv_imgcodecs.a"
-                //ldLibs += libsDir + "libopencv_imgproc.a"
-                ldLibs += libsDir + "libopencv_java3.so"
-                //ldLibs += libsDir + "libopencv_ml.a"
-                //ldLibs += libsDir + "libopencv_objdetect.a"
-                //ldLibs += libsDir + "libopencv_photo.a"
-                //ldLibs += libsDir + "libopencv_shape.a"
-                //ldLibs += libsDir + "libopencv_stitching.a"
-                //ldLibs += libsDir + "libopencv_superres.a"
-                //ldLibs += libsDir + "libopencv_ts.a"
-                //ldLibs += libsDir + "libopencv_video.a"
-                //ldLibs += libsDir + "libopencv_videostab.a"
-            }
-        }
-        create("fat") {
-
-        }
+        }*/
     }
 }
 

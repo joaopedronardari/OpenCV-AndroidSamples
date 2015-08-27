@@ -14,6 +14,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.jnardari.opencv_androidsamples.R;
@@ -118,6 +119,7 @@ public class Tutorial3Activity extends AppCompatActivity implements CvCameraView
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         List<String> effects = mOpenCvCameraView.getEffectList();
 
         if (effects == null) {
