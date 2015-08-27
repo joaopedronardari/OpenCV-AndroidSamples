@@ -25,4 +25,5 @@
     <string name="title_activity_color_blob_detection">ColorBlobDetectionActivity</string>
     <string name="title_activity_camera_calibration">CameraCalibrationActivity</string>
     <string name="title_activity_puzzle15">Puzzle15Activity</string>
+    <string name="title_activity_face_detection">FaceDetectionActivity</string>
 </resources>

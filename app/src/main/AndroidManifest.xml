@@ -24,9 +24,8 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
         android:largeHeap="true"
-        >
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".activities.SamplesActivity"
             android:label="@string/app_name" >
@@ -48,10 +47,10 @@
         </activity>
         <activity
             android:name=".activities.Tutorial2Activity"
+            android:configChanges="keyboardHidden|orientation"
             android:label="@string/title_activity_tutorial2"
             android:parentActivityName=".activities.SamplesActivity"
-            android:screenOrientation="landscape"
-            android:configChanges="keyboardHidden|orientation">
+            android:screenOrientation="landscape" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jnardari.opencv_androidsamples.activities.SamplesActivity" />
@@ -92,6 +91,16 @@
             android:name=".activities.Puzzle15Activity"
             android:label="@string/title_activity_puzzle15"
             android:parentActivityName=".activities.SamplesActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jnardari.opencv_androidsamples.activities.SamplesActivity" />
+        </activity>
+        <activity
+            android:name=".activities.FaceDetectionActivity"
+            android:label="@string/title_activity_face_detection"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation"
+            android:parentActivityName=".activities.SamplesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jnardari.opencv_androidsamples.activities.SamplesActivity" />
