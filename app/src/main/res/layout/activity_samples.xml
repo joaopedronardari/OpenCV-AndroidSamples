@@ -86,8 +86,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignRight="@+id/button4"
                 android:layout_alignEnd="@+id/button4"
-                android:onClick="faceDetection"
-                android:enabled="false"/>
+                android:onClick="faceDetection"/>
 
             <Button
                 android:layout_width="match_parent"

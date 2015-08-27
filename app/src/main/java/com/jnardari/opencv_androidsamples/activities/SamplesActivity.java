@@ -38,7 +38,8 @@ public class SamplesActivity extends AppCompatActivity {
     }
 
     public void faceDetection(View v) {
-        // TODO - Create Intent and Start Activity
+        sampleIntent = new Intent(this, FaceDetectionActivity.class);
+        startActivity(sampleIntent);
     }
 
     public void colorBlobDetection(View v) {
