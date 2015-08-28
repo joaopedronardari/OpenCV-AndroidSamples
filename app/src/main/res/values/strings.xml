@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OpenCV-AndroidSamples</string>
+    <string name="app_name">OpenCV Samples</string>
 
     <!-- Camera Calibration Strings -->
     <string name="action_calibrate">Calibrate</string>
@@ -16,7 +16,6 @@
     <string name="undistorted">Undistorted</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
     <string name="title_activity_tutorial1">Tutorial 1 Sample</string>
     <string name="title_activity_tutorial2">Tutorial 2 Sample</string>
     <string name="title_activity_tutorial3">Tutorial 3 Sample</string>
