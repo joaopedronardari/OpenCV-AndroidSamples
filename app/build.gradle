@@ -3,7 +3,7 @@ apply plugin: 'com.android.model.application'
 model {
     android {
         compileSdkVersion = 22
-        buildToolsVersion = "23.0.0"
+        buildToolsVersion = "25.0.3"
 
         defaultConfig.with {
             applicationId = "com.jnardari.opencv_androidsamples"
@@ -17,7 +17,7 @@ model {
     android.buildTypes {
         release {
             minifyEnabled = false
-            proguardFiles += file('proguard-rules.pro')
+            proguardFiles.add(file('proguard-rules.pro'))
         }
     }
 
@@ -26,55 +26,57 @@ model {
      */
     android.ndk {
         moduleName = "ndklibrarysample"
-        cppFlags += ["-std=c++11", "-fexceptions", "-frtti"]
-        cppFlags  += "-I${file("C:/Users/jnardari/Desktop/OpenCV-android-sdk/sdk/native/jni/include")}".toString()
-        ldLibs += ["android", "EGL", "GLESv2", "dl", "log", "z"]
+        CFlags.add("-std=c++11")
+        CFlags.add("-fexceptions")
+        CFlags.add("-frtti")
+        CFlags.add("-I${file("~/git/openCV/openCV-3.3.1/sdk/native/jni/include")}".toString()) // download it here https://www.opencv.org/releases.html
+        ldLibs.addAll("android", "EGL", "GLESv2", "dl", "log", "z")
         stl = "gnustl_static"
     }
 
     android.productFlavors {
         create("arm") {
             ndk.with {
-                abiFilters += "armeabi"
+                abiFilters.addAll("armeabi")
 
                 File curDir = file('./')
                 curDir = file(curDir.absolutePath)
                 String libsDir = curDir.absolutePath + "\\src\\main\\jniLibs\\armeabi\\"
 
-                ldLibs += libsDir + "libopencv_java3.so"
+                ldLibs.addAll(libsDir + "libopencv_java3.so")
             }
         }
         create("armv7") {
             ndk.with {
-                abiFilters += "armeabi-v7a"
+                abiFilters.addAll("armeabi-v7a")
 
                 File curDir = file('./')
                 curDir = file(curDir.absolutePath)
                 String libsDir = curDir.absolutePath + "\\src\\main\\jniLibs\\armeabi-v7a\\"
 
-                ldLibs += libsDir + "libopencv_java3.so"
+                ldLibs.addAll(libsDir + "libopencv_java3.so")
             }
         }
         create("x86") {
             ndk.with {
-                abiFilters += "x86"
+                abiFilters.addAll("x86")
 
                 File curDir = file('./')
                 curDir = file(curDir.absolutePath)
                 String libsDir = curDir.absolutePath + "\\src\\main\\jniLibs\\x86\\"
 
-                ldLibs += libsDir + "libopencv_java3.so"
+                ldLibs.addAll(libsDir + "libopencv_java3.so")
             }
         }
         create("mips") {
             ndk.with {
-                abiFilters += "mips"
+                abiFilters.addAll("mips")
 
                 File curDir = file('./')
                 curDir = file(curDir.absolutePath)
                 String libsDir = curDir.absolutePath + "\\src\\main\\jniLibs\\mips\\"
 
-                ldLibs += libsDir + "libopencv_java3.so"
+                ldLibs.addAll(libsDir + "libopencv_java3.so")
             }
         }
         create("fat") {
