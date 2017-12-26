@@ -27,7 +27,7 @@ model {
     android.ndk {
         moduleName = "ndklibrarysample"
         cppFlags += ["-std=c++11", "-fexceptions", "-frtti"]
-        cppFlags  += "-I${file("C:/Users/jnardari/Desktop/OpenCV-android-sdk/sdk/native/jni/include")}".toString()
+        cppFlags  += "-I${file("~/git/openCV/openCV-3.3.1/sdk/native/jni/include")}".toString()
         ldLibs += ["android", "EGL", "GLESv2", "dl", "log", "z"]
         stl = "gnustl_static"
     }
