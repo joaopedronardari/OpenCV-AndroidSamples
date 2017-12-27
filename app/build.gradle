@@ -26,10 +26,11 @@ model {
      */
     android.ndk {
         moduleName = "ndklibrarysample"
-        CFlags.add("-std=c++11")
-        CFlags.add("-fexceptions")
-        CFlags.add("-frtti")
-        CFlags.add("-I${file("~/git/openCV/openCV-3.3.1/sdk/native/jni/include")}".toString()) // download it here https://www.opencv.org/releases.html
+        cppFlags.add("-std=c++11")
+        cppFlags.add("-fexceptions")
+        cppFlags.add("-frtti")
+        cppFlags.add("-I${file("/Users/hannes/git/openCV/openCV-3.3.1/sdk/native/jni/include/")}".toString()) // download it here https://www.opencv.org/releases.html
+        cppFlags.add("-I${file("/Users/hannes/Development/my-android-toolchain/sysroot/usr/include/")}".toString())
         ldLibs.addAll("android", "EGL", "GLESv2", "dl", "log", "z")
         stl = "gnustl_static"
     }
