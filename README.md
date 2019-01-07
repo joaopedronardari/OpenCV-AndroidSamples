@@ -1,5 +1,5 @@
 # OpenCV-AndroidSamples
-OpenCv samples for Android from OpenCV SDK using Android Studio and Gradle System
+OpenCV samples for Android from OpenCV SDK using Android Studio and Gradle System
 
 [Demo Available on Google Play](https://play.google.com/store/apps/details?id=com.jnardari.opencv_androidsamples)
 
