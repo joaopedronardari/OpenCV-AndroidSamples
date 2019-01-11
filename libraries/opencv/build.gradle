@@ -12,7 +12,7 @@ buildscript {
 model {
     android {
         compileSdkVersion = 22
-        buildToolsVersion = "23.0.0"
+        buildToolsVersion = "23.0.3"
 
         defaultConfig.with {
             minSdkVersion.apiLevel = 8
